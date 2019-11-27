@@ -7,10 +7,6 @@
 //
 
 #include <iostream>
-#include "Persona.h"
-#include "Prisionero.h"
-#include "ArrayPrisionero.h"
-#include "Usuario.h"
 #include "Menu.h"
 int main()
 {

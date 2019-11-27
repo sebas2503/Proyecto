@@ -41,6 +41,14 @@ void ArrayPrisionero::RediArrP(int x)
 }
 void ArrayPrisionero::AgregarPrisionero(Prisionero x)
 {
+    for(int i=0;i<size1;i++)
+        while(arr[i].GetCodigo()==x.GetCodigo())
+        {
+            cout<<"Ese codigo ya existe intente uno nuevo: ";
+            string codigo;
+            getline(cin,codigo);
+            x.SetCodigo(codigo);
+        }
     size1++;
     Prisionero *tmp= new Prisionero[size1];
     for(int i=0;i<size1-1;i++)
@@ -48,7 +56,6 @@ void ArrayPrisionero::AgregarPrisionero(Prisionero x)
     tmp[size1-1]=x;
     delete [] arr;
     arr=tmp;
-    //Prisionero *aux= new Prisionero[size1];
 }
 void ArrayPrisionero::EliminarPrisionero(string aux_codigo)
 {
@@ -87,10 +94,6 @@ void ArrayPrisionero::EliminarPrisionero(string aux_codigo)
             }
             else
                 cout<<"Prisionero no eliminado"<<endl;
-        }
-        else
-        {
-            cout<<"Ese codigo de prisionero no existe"<<endl;
         }
     }
 }
@@ -243,6 +246,23 @@ void ArrayPrisionero::OrdenarApellido()
             arr[x]=arr[i];
             arr[i]=aux;
             f++;
+        }
+    }
+}
+void ArrayPrisionero::BuscarPrisionero(string nombre)
+{
+    for(int i=0;i<size1;i++)
+    {
+        if(arr[i].GetNombre().find(nombre)!=string::npos)
+        {
+            cout<<"\t\t\tPrisionero\t"<<endl;
+            cout<<"Codigo: "<<arr[i].GetCodigo()<<endl;
+            cout<<"Nombre: "<<arr[i].GetNombre()<<endl;
+            cout<<"Apellido: "<<arr[i].GetApellido()<<endl;
+            cout<<"Fecha de nacimiento: "<<arr[i].GetNacimiento()<<endl;
+            cout<<"Dni: "<<arr[i].GetDni()<<endl;
+            cout<<"Nivel de Peligro: "<<arr[i].GetNivelPeligro()<<endl;
+            cout<<"Condena: "<<arr[i].GetCondena()<<endl;
         }
     }
 }

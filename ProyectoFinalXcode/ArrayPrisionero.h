@@ -10,6 +10,7 @@ class ArrayPrisionero
         ArrayPrisionero(ArrayPrisionero &a);
         //Parte Getters
         int GetSize();
+        //Funciones
         void AgregarPrisionero(Prisionero);
         void EliminarPrisionero(string);
         void ModificarPrisionero(string);
@@ -18,6 +19,7 @@ class ArrayPrisionero
         void LecturaArrPrisionero();
         void OrdenarNombre();
         void OrdenarApellido();
+        void BuscarPrisionero(string);
     private:
         Prisionero *arr;
         int size1;
