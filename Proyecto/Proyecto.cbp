@@ -34,16 +34,26 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ArrayPersonas.h" />
+		<Unit filename="include/ArrayPrisionero.h" />
+		<Unit filename="include/Guardia.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Persona.h" />
+		<Unit filename="include/Prisionero.h" />
+		<Unit filename="include/Usuario.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ArrayPersonas.cpp" />
+		<Unit filename="src/ArrayPrisionero.cpp" />
+		<Unit filename="src/Guardia.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Persona.cpp" />
+		<Unit filename="src/Prisionero.cpp" />
+		<Unit filename="src/Usuario.cpp" />
 		<Extensions>
-			<code_completion />
 			<envvars />
-			<debugger />
+			<code_completion />
 			<lib_finder disable_auto="1" />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

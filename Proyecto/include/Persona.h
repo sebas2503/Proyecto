@@ -8,17 +8,28 @@ class Persona
     public:
         Persona();
         Persona(string,string,string,string,string);
-        void SetDatos();
-        void Registro();
-        void MostrarDatos();
-        void Eliminar();
-
+        Persona(Persona &copia);
+        //Parte Setters
+        void SetCodigo(string);
+        void SetNombre(string);
+        void SetApellido(string);
+        void SetNacimiento(string);
+        void SetDni(string);
+        //Parte Getters
+        string GetCodigo();
+        string GetNombre();
+        string GetApellido();
+        string GetNacimiento();
+        string GetDni();
+        //Parte Metodo
+        virtual void MostarDatos();
+        virtual void SetDatos();
     protected:
-        string Codigo;
-        string Nombre;
-        string Apellido;
-        string FechaNacimiento;
-        string Dni;
+        string codigo;
+        string nombre;
+        string apellido;
+        string nacimiento;
+        string dni;
 };
 
 #endif // PERSONA_H

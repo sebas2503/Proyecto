@@ -2,63 +2,86 @@
 #include <fstream>
 Persona::Persona()
 {
-    Codigo="Codigo";
-    Nombre="Nombre";
-    Apellido="Apellido";
-    FechaNacimiento="Fecha Nacimiento";
-    Dni="Dni";
+    codigo="Codigo";
+    nombre="Nombre";
+    apellido="Apellido";
+    nacimiento="Fecha Nacimiento";
+    dni="Dni";
 }
-Persona::Persona(string Codigo,string Nombre,string Apellido,string FechaNacimiento,string Dni)
+Persona::Persona(string codigo,string nombre,string apellido,string nacimiento,string dni)
 {
-    this->Codigo=Codigo;
-    this->Nombre=Nombre;
-    this->Apellido=Apellido;
-    this->FechaNacimiento=FechaNacimiento;
-    this->Dni=Dni;
+    this->codigo=codigo;
+    this->nombre=nombre;
+    this->apellido=apellido;
+    this->nacimiento=nacimiento;
+    this->dni=dni;
+}
+Persona::Persona(Persona &copia)
+{
+    codigo=copia.codigo;
+    nombre=copia.nombre;
+    apellido=copia.apellido;
+    nacimiento=copia.nacimiento;
+    dni=copia.dni;
+}
+//Parte Setters
+void Persona::SetCodigo(string codigo)
+{
+    this->codigo=codigo;
+}
+void Persona::SetNombre(string nombre)
+{
+    this->nombre=nombre;
+}
+void Persona::SetApellido(string apellido)
+{
+    this->apellido=apellido;
+}
+void Persona::SetNacimiento(string nacimiento)
+{
+    this->nacimiento=nacimiento;
+}
+void Persona::SetDni(string dni)
+{
+    this->dni=dni;
+}
+//Parte Getters
+string Persona::GetCodigo()
+{
+    return codigo;
+}
+string Persona::GetNombre()
+{
+    return nombre;
+}
+string Persona::GetApellido()
+{
+    return apellido;
+}
+string Persona::GetNacimiento()
+{
+    return nacimiento;
+}
+string Persona::GetDni()
+{
+    return dni;
+}
+void Persona::MostarDatos()
+{
+    cout<<"Codigo: "<<codigo<<endl;
+    cout<<"Nombre: "<<nombre<<endl;
+    cout<<"Apellido: "<<apellido<<endl;
+    cout<<"Fecha de Nacimiento: "<<nacimiento<<endl;
+    cout<<"Dni: "<<dni<<endl;
 }
 void Persona::SetDatos()
 {
-    bool verificado=false;
-    ifstream lectura;
-    string aux_codigo;
-    lectura.open("Registro.txt",ios::in);
-    if(lectura.is_open())
-    {
-        cout<<"\t\t\tRegistrando\t\n";
-        cout<<"Codigo: ";
-        getline(cin,aux_codigo);
-        lectura.seekg(0);
-        getline(lectura,Codigo);
-        while(!lectura.eof())
-        {
-        getline(lectura,Nombre);
-        getline(lectura,Apellido);
-        getline(lectura,FechaNacimiento);
-        getline(lectura,Dni);
-        }
-    }
-    Codigo=aux_codigo;
-    cout<<"\t\t\tRegistrando\t\n";
-    cout<<"Codigo: ";
-    cout<<Codigo<<endl;
-    cout<<"Nombre: ";
-    getline(cin,Nombre);
-    cout<<"Apellido: ";
-    getline(cin,Apellido);
-    cout<<"Fecha de Nacimiento: ";
-    getline(cin,FechaNacimiento);
-    cout<<"Dni: ",
-    getline(cin,Dni);
-    lectura.close();
-}
-void Persona::Registro()
-{
-    ofstream archivo;
-    archivo.open("Registro.txt",ios::app);
-    archivo<<Codigo<<endl;
-    archivo<<Nombre<<endl;
-    archivo<<Apellido<<endl;
-    archivo<<FechaNacimiento<<endl;
-    archivo<<Dni<<endl;
-
+    cout<<"Nuevo nombre: ";
+    getline(cin,nombre);
+    cout<<"Nuevo apellido: ";
+    getline(cin, apellido);
+    cout<<"Nueva fecha de nacimiento: ";
+    getline(cin,nacimiento);
+    cout<<"Nuevo dni: ";
+    getline(cin,dni);
 }
