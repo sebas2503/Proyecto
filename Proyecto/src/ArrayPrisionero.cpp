@@ -65,21 +65,7 @@ void ArrayPrisionero::EliminarPrisionero(string aux_codigo)
     {
         if(arr[i].GetCodigo() == aux_codigo)
         {
-            cout<<"Codigo: ";
-            cout<<arr[i].GetCodigo()<<endl;
-            cout<<"Nombre: ";
-            cout<<arr[i].GetNombre()<<endl;
-            cout<<"Apellido: ";
-            cout<<arr[i].GetApellido()<<endl;
-            cout<<"Fecha de nacimiento: ";
-            cout<<arr[i].GetNacimiento()<<endl;
-            cout<<"Dni: ";
-            cout<<arr[i].GetDni()<<endl;
-            cout<<"Nivel de peligro: ";
-            cout<<arr[i].GetNivelPeligro()<<endl;
-            cout<<"Condena: ";
-            cout<<arr[i].GetCondena()<<endl;
-            cout<<i<<endl;
+            arr[i].MostrarDatos();
             cout<<"Esta seguro que quiere eliminar a este prisionero ";
             cout<<"Por favor ingrese un Si: ";
             getline(cin,verificacion);
