@@ -65,7 +65,7 @@ void ArrayPrisionero::EliminarPrisionero(string aux_codigo)
     {
         if(arr[i].GetCodigo() == aux_codigo)
         {
-            arr[i].MostrarDatos();
+            arr[i].MostarDatos();
             cout<<"Esta seguro que quiere eliminar a este prisionero ";
             cout<<"Por favor ingrese un Si: ";
             getline(cin,verificacion);
