@@ -88,7 +88,20 @@ void ArrayPersonas<L>::EliminarPersona(string codigo)
     {
         if(guarpri[i].GetCodigo() == codigo)
         {
-            guarpri[i].MostrarDatos();
+            cout<<"Codigo: ";
+            cout<<guarpri[i].GetCodigo()<<endl;
+            cout<<"Nombre: ";
+            cout<<guarpri[i].GetNombre()<<endl;
+            cout<<"Apellido: ";
+            cout<<guarpri[i].GetApellido()<<endl;
+            cout<<"Fecha de nacimiento: ";
+            cout<<guarpri[i].GetNacimiento()<<endl;
+            cout<<"Dni: ";
+            cout<<guarpri[i].GetDni()<<endl;
+            cout<<"Nivel de peligro: ";
+            cout<<guarpri[i].GetSeccion()<<endl;
+            cout<<"Condena: ";
+            cout<<guarpri[i].GetTurno()<<endl;
             cout<<"Esta seguro que quiere eliminar a este guardia ";
             cout<<"Por favor ingrese un Si: ";
             getline(cin,verificador);
