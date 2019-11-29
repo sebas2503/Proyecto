@@ -21,6 +21,9 @@ class Persona
         string GetApellido();
         string GetNacimiento();
         string GetDni();
+        //Parte Metodo
+        virtual void MostarDatos();
+        virtual void SetDatos();
     protected:
         string codigo;
         string nombre;

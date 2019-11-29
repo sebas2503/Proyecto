@@ -11,6 +11,8 @@ class Menu
         void MenuPrincipal();
         void MenuPrisionero();
         void MenuGuardia();
+        void SubMenuGuardia();
+        void SubMenuPrisionero();
     private:
         typedef ArrayPersonas<Guardia> gp;
         gp gx;

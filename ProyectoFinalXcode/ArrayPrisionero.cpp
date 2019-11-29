@@ -103,31 +103,8 @@ void ArrayPrisionero::ModificarPrisionero(string codigo_)
     for(int i=0;i<size1;i++)
         if(arr[i].GetCodigo() == codigo_)
         {
-            string nombre_;
-            string apellido_;
-            string nacimiento_;
-            string dni_;
-            string nivelPeligro_;
-            string condena_;
             encontrado=true;
-            cout<<"Ingrese el nuevo nombre del prisionero: ";
-            getline(cin,nombre_);
-            cout<<"Ingrese el nuevo apellido del prisionero: ";
-            getline(cin,apellido_);
-            cout<<"Ingrese la nueva fecha de nacimiento del prisionero: ";
-            getline(cin,nacimiento_);
-            cout<<"Ingrese el nuevo dni del prisionero: ";
-            getline(cin,dni_);
-            cout<<"Ingrese el nuevo nivel de peligro del prisionero: ";
-            getline(cin,nivelPeligro_);
-            cout<<"Ingrese la nueva condena del prisionero: ";
-            getline(cin,condena_);
-            arr[i].SetNombre(nombre_);
-            arr[i].SetApellido(apellido_);
-            arr[i].SetNacimiento(nacimiento_);
-            arr[i].SetDni(dni_);
-            arr[i].SetNivelPeligro(nivelPeligro_);
-            arr[i].SetCondena(condena_);
+            arr[i].SetDatos();
         }
         else
         {
@@ -142,23 +119,10 @@ void ArrayPrisionero::MostrarArrPrisionero()
         cout<<"Array vacio"<<endl;
         return;
     }
+    cout<<"Datos"<<endl;
     for(int i=0;i<size1;i++)
     {
-        cout<<"Posicion: "<<i<<endl;
-        cout<<"Codigo: ";
-        cout<<arr[i].GetCodigo()<<endl;
-        cout<<"Nombre: ";
-        cout<<arr[i].GetNombre()<<endl;
-        cout<<"Apellido: ";
-        cout<<arr[i].GetApellido()<<endl;
-        cout<<"Fecha de nacimiento: ";
-        cout<<arr[i].GetNacimiento()<<endl;
-        cout<<"Dni: ";
-        cout<<arr[i].GetDni()<<endl;
-        cout<<"Nivel de peligro: ";
-        cout<<arr[i].GetNivelPeligro()<<endl;
-        cout<<"Condena: ";
-        cout<<arr[i].GetCondena()<<endl;
+        arr[i].MostarDatos();
     }
 }
 void ArrayPrisionero::SubiraFichero()
@@ -201,13 +165,6 @@ void ArrayPrisionero::LecturaArrPrisionero()
             getline(lectura,aux_dni);
             getline(lectura,aux_nivelPeligro);
             getline(lectura,aux_condena);
-            cout<<"Codigo: "<<aux_codigo<<endl;
-            cout<<"Nombre: "<<aux_nombre<<endl;
-            cout<<"Apellido: "<<aux_apellido<<endl;
-            cout<<"Fecha de nacimiento: "<<aux_nacimiento<<endl;
-            cout<<"Dni: "<<aux_dni<<endl;
-            cout<<"Nivel de peligro: "<<aux_nivelPeligro<<endl;
-            cout<<"Condena: "<<aux_condena<<endl;
             Prisionero prisionero(aux_codigo,aux_nombre,aux_apellido,aux_nacimiento,aux_dni,aux_nivelPeligro,aux_condena);
             AgregarPrisionero(prisionero);
             getline(lectura,aux_codigo);
@@ -255,14 +212,7 @@ void ArrayPrisionero::BuscarPrisionero(string nombre)
     {
         if(arr[i].GetNombre().find(nombre)!=string::npos)
         {
-            cout<<"\t\t\tPrisionero\t"<<endl;
-            cout<<"Codigo: "<<arr[i].GetCodigo()<<endl;
-            cout<<"Nombre: "<<arr[i].GetNombre()<<endl;
-            cout<<"Apellido: "<<arr[i].GetApellido()<<endl;
-            cout<<"Fecha de nacimiento: "<<arr[i].GetNacimiento()<<endl;
-            cout<<"Dni: "<<arr[i].GetDni()<<endl;
-            cout<<"Nivel de Peligro: "<<arr[i].GetNivelPeligro()<<endl;
-            cout<<"Condena: "<<arr[i].GetCondena()<<endl;
+            arr[i].MostarDatos();
         }
     }
 }

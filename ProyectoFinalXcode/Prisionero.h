@@ -20,6 +20,10 @@ class Prisionero : public Persona
         //Parte Getters
         string GetNivelPeligro();
         string GetCondena();
+        //Parte Metodo
+        void MostarDatos();
+        void SetDatos();
+        void SubiraFichero();
     private:
         string nivelPeligro;
         string condena;

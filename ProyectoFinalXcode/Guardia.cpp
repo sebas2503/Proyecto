@@ -26,3 +26,17 @@ void Guardia::SetSeccion(string seccion)
 {
     this->seccion=seccion;
 }
+void Guardia::MostrarDatos()
+{
+    Persona::MostarDatos();
+    cout<<"Seccion: "<<seccion<<endl;
+    cout<<"Turno: "<<turno<<endl;
+}
+void Guardia::SetDatos()
+{
+    Persona::SetDatos();
+    cout<<"Nueva seccion: ";
+    getline(cin,seccion);
+    cout<<"Nuevo turno: ";
+    getline(cin,turno);
+}

@@ -15,6 +15,9 @@ class Guardia : public Persona
         //Parte Getters
         string GetSeccion();
         string GetTurno();
+        //Parte Metodo
+        void MostrarDatos();
+        void SetDatos();
     private:
     string seccion,turno;
 };

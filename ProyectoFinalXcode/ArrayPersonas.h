@@ -35,20 +35,20 @@ class ArrayPersonas
         void BuscarPersona(string);
     protected:
         int tam;
-        L *guardia;
+        L *guarpri;
         void RediArrPer(int);
 };
 template <typename L>
 ArrayPersonas<L>::ArrayPersonas()
 {
     tam=0;
-    guardia = new L[tam];
+    guarpri = new L[tam];
 }
 template <typename L>
 ArrayPersonas<L>::~ArrayPersonas()
 {
     cout<<"Destructor invocado"<<endl;
-    delete [] guardia;
+    delete [] guarpri;
 }
 template <typename L>
 void ArrayPersonas<L>::RediArrPer(int x)
@@ -56,15 +56,15 @@ void ArrayPersonas<L>::RediArrPer(int x)
     tam=x;
     L *tmp = new L[tam];
     for(int i=0;i<tam;i++)
-        tmp[i]=guardia[i];
-    delete [] guardia;
-    guardia=tmp;
+        tmp[i]=guarpri[i];
+    delete [] guarpri;
+    guarpri=tmp;
 }
 template <typename L>
 void ArrayPersonas<L>::AgregarPersona(L g)
 {
     for(int i=0;i<tam;i++)
-        while(guardia[i].GetCodigo()==g.GetCodigo())
+        while(guarpri[i].GetCodigo()==g.GetCodigo())
         {
             cout<<"Ese codigo ya existe intente uno nuevo: ";
             string codigo;
@@ -74,10 +74,10 @@ void ArrayPersonas<L>::AgregarPersona(L g)
     tam++;
     L *tmp= new L[tam];
     for(int i=0;i<tam-1;i++)
-        tmp[i]=guardia[i];
+        tmp[i]=guarpri[i];
     tmp[tam-1]=g;
-    delete [] guardia;
-    guardia=tmp;
+    delete [] guarpri;
+    guarpri=tmp;
 }
 template <typename L>
 void ArrayPersonas<L>::EliminarPersona(string codigo)
@@ -86,23 +86,9 @@ void ArrayPersonas<L>::EliminarPersona(string codigo)
     string si("Si");
     for(int i=0;i<tam;i++)
     {
-        if(guardia[i].GetCodigo() == codigo)
+        if(guarpri[i].GetCodigo() == codigo)
         {
-            cout<<"Codigo: ";
-            cout<<guardia[i].GetCodigo()<<endl;
-            cout<<"Nombre: ";
-            cout<<guardia[i].GetNombre()<<endl;
-            cout<<"Apellido: ";
-            cout<<guardia[i].GetApellido()<<endl;
-            cout<<"Fecha de nacimiento: ";
-            cout<<guardia[i].GetNacimiento()<<endl;
-            cout<<"Dni: ";
-            cout<<guardia[i].GetDni()<<endl;
-            cout<<"Seccion: ";
-            cout<<guardia[i].GetSeccion()<<endl;
-            cout<<"Turno: ";
-            cout<<guardia[i].GetTurno()<<endl;
-            cout<<i<<endl;
+            guarpri[i].MostrarDatos();
             cout<<"Esta seguro que quiere eliminar a este guardia ";
             cout<<"Por favor ingrese un Si: ";
             getline(cin,verificador);
@@ -110,7 +96,7 @@ void ArrayPersonas<L>::EliminarPersona(string codigo)
             {
                 for(int f=i;f<tam;f++)
                 {
-                    guardia[f]=guardia[f+1];
+                    guarpri[f]=guarpri[f+1];
                 }
                 RediArrPer(--tam);
                 cout<<"Guardia eliminado"<<endl;
@@ -125,33 +111,10 @@ void ArrayPersonas<L>::ModificarPersona(string codigo)
 {
     bool encontrado=false;
     for(int i=0;i<tam;i++)
-        if(guardia[i].GetCodigo() == codigo)
+        if(guarpri[i].GetCodigo() == codigo)
         {
-            string nombre_;
-            string apellido_;
-            string nacimiento_;
-            string dni_;
-            string seccion_;
-            string turno_;
             encontrado=true;
-            cout<<"Ingrese el nuevo nombre del guardia: ";
-            getline(cin,nombre_);
-            cout<<"Ingrese el nuevo apellido del guardia: ";
-            getline(cin,apellido_);
-            cout<<"Ingrese la nueva fecha de nacimiento del guardia: ";
-            getline(cin,nacimiento_);
-            cout<<"Ingrese el nuevo dni del guardia: ";
-            getline(cin,dni_);
-            cout<<"Ingrese la nueva seccion del guardia: ";
-            getline(cin,seccion_);
-            cout<<"Ingrese el nuevo turno  del guardia: ";
-            getline(cin,turno_);
-            guardia[i].SetNombre(nombre_);
-            guardia[i].SetApellido(apellido_);
-            guardia[i].SetNacimiento(nacimiento_);
-            guardia[i].SetDni(dni_);
-            guardia[i].SetSeccion(seccion_);
-            guardia[i].SetTurno(turno_);
+            guarpri[i].SetDatos();
         }
 }
 template <typename L>
@@ -162,23 +125,10 @@ void ArrayPersonas<L>::MostrarArrPersona()
         cout<<"Array vacio"<<endl;
         return;
     }
+    cout<<"Datos"<<endl;
     for(int i=0;i<tam;i++)
     {
-        cout<<"Posicion: "<<i<<endl;
-        cout<<"Codigo: ";
-        cout<<guardia[i].GetCodigo()<<endl;
-        cout<<"Nombre: ";
-        cout<<guardia[i].GetNombre()<<endl;
-        cout<<"Apellido: ";
-        cout<<guardia[i].GetApellido()<<endl;
-        cout<<"Fecha de nacimiento: ";
-        cout<<guardia[i].GetNacimiento()<<endl;
-        cout<<"Dni: ";
-        cout<<guardia[i].GetDni()<<endl;
-        cout<<"Seccion: ";
-        cout<<guardia[i].GetSeccion()<<endl;
-        cout<<"Turno: ";
-        cout<<guardia[i].GetTurno()<<endl;
+        guarpri[i].MostrarDatos();
     }
 }
 template <typename L>
@@ -190,13 +140,13 @@ void ArrayPersonas<L>::SubiraFichero()
     {
         for(int i=0;i<tam;i++)
         {
-            archivo<<guardia[i].GetCodigo()<<endl;
-            archivo<<guardia[i].GetNombre()<<endl;
-            archivo<<guardia[i].GetApellido()<<endl;
-            archivo<<guardia[i].GetNacimiento()<<endl;
-            archivo<<guardia[i].GetDni()<<endl;
-            archivo<<guardia[i].GetSeccion()<<endl;
-            archivo<<guardia[i].GetTurno()<<endl;
+            archivo<<guarpri[i].GetCodigo()<<endl;
+            archivo<<guarpri[i].GetNombre()<<endl;
+            archivo<<guarpri[i].GetApellido()<<endl;
+            archivo<<guarpri[i].GetNacimiento()<<endl;
+            archivo<<guarpri[i].GetDni()<<endl;
+            archivo<<guarpri[i].GetSeccion()<<endl;
+            archivo<<guarpri[i].GetTurno()<<endl;
         }
         cout<<"Datos totalmente guardados"<<endl;
         archivo.close();
@@ -227,13 +177,6 @@ void ArrayPersonas<L>::LecturaArrPersona()
             getline(lectura,aux_dni);
             getline(lectura,aux_seccion);
             getline(lectura,aux_turno);
-            cout<<"Codigo: "<<aux_codigo<<endl;
-            cout<<"Nombre: "<<aux_nombre<<endl;
-            cout<<"Apellido: "<<aux_apellido<<endl;
-            cout<<"Fecha de nacimiento: "<<aux_nacimiento<<endl;
-            cout<<"Dni: "<<aux_dni<<endl;
-            cout<<"Seccion: "<<aux_seccion<<endl;
-            cout<<"Turno: "<<aux_turno<<endl;
             L x(aux_codigo,aux_nombre,aux_apellido,aux_nacimiento,aux_dni,aux_seccion,aux_turno);
             AgregarPersona(x);
             getline(lectura,aux_codigo);
@@ -250,11 +193,11 @@ void ArrayPersonas<L>::OrdenarNombre()
         int m=i;
         for(int j=i+1;j<tam;j++)
         {
-            if (guardia[m].GetNombre() [f]>guardia[j].GetNombre() [f])
+            if (guarpri[m].GetNombre() [f]>guarpri[j].GetNombre() [f])
             {m=j;}
-            L aux=guardia[m];
-            guardia[m]=guardia[i];
-            guardia[i]=aux;
+            L aux=guarpri[m];
+            guarpri[m]=guarpri[i];
+            guarpri[i]=aux;
             f++;
         }
     }
@@ -268,11 +211,11 @@ void ArrayPersonas<L>::OrdenarApellido()
         int x=i;
         for(int j=i+1;j<tam;j++)
         {
-            if(guardia[x].GetApellido()[f]>guardia[j].GetApellido()[f])
+            if(guarpri[x].GetApellido()[f]>guarpri[j].GetApellido()[f])
                 x=j;
-            L aux= guardia[x];
-            guardia[x]=guardia[i];
-            guardia[i]=aux;
+            L aux= guarpri[x];
+            guarpri[x]=guarpri[i];
+            guarpri[i]=aux;
             f++;
         }
     }
@@ -282,16 +225,9 @@ void ArrayPersonas<L>::BuscarPersona(string nombre)
 {
     for(int i=0;i<tam;i++)
     {
-        if(guardia[i].GetNombre().find(nombre)!=string::npos)
+        if(guarpri[i].GetNombre().find(nombre)!=string::npos)
         {
-            cout<<"\t\t\tPrisionero\t"<<endl;
-            cout<<"Codigo: "<<guardia[i].GetCodigo()<<endl;
-            cout<<"Nombre: "<<guardia[i].GetNombre()<<endl;
-            cout<<"Apellido: "<<guardia[i].GetApellido()<<endl;
-            cout<<"Fecha de nacimiento: "<<guardia[i].GetNacimiento()<<endl;
-            cout<<"Dni: "<<guardia[i].GetDni()<<endl;
-            cout<<"Seccion: "<<guardia[i].GetSeccion()<<endl;
-            cout<<"Turno: "<<guardia[i].GetTurno()<<endl;
+            guarpri[i].MostrarDatos();
         }
     }
 }

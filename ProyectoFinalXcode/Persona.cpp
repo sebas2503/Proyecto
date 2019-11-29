@@ -66,3 +66,22 @@ string Persona::GetDni()
 {
     return dni;
 }
+void Persona::MostarDatos()
+{
+    cout<<"Codigo: "<<codigo<<endl;
+    cout<<"Nombre: "<<nombre<<endl;
+    cout<<"Apellido: "<<apellido<<endl;
+    cout<<"Fecha de Nacimiento: "<<nacimiento<<endl;
+    cout<<"Dni: "<<dni<<endl;
+}
+void Persona::SetDatos()
+{
+    cout<<"Nuevo nombre: ";
+    getline(cin,nombre);
+    cout<<"Nuevo apellido: ";
+    getline(cin, apellido);
+    cout<<"Nueva fecha de nacimiento: ";
+    getline(cin,nacimiento);
+    cout<<"Nuevo dni: ";
+    getline(cin,dni);
+}

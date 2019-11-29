@@ -31,3 +31,17 @@ string Prisionero::GetCondena()
 {
     return condena;
 }
+void Prisionero::MostarDatos()
+{
+    Persona::MostarDatos();
+    cout<<"Nivel de Peligro: "<<nivelPeligro<<endl;
+    cout<<"Condena: "<<condena<<endl;
+}
+void Prisionero::SetDatos()
+{
+    Persona::SetDatos();
+    cout<<"Nuevo nivel de peligro: ";
+    getline(cin,nivelPeligro);
+    cout<<"Nueva condena: ";
+    getline(cin,condena);
+}
