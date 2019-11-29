@@ -53,11 +53,11 @@ ArrayPersonas<L>::~ArrayPersonas()
 template <typename L>
 void ArrayPersonas<L>::RediArrPer(int x)
 {
-    tam=x;
-    L *tmp = new L[tam];
+    L *tmp = new L[x];
     for(int i=0;i<tam;i++)
         tmp[i]=guarpri[i];
     delete [] guarpri;
+    tam=x;
     guarpri=tmp;
 }
 template <typename L>
