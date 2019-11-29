@@ -32,11 +32,11 @@ int ArrayPrisionero::GetSize()
 }
 void ArrayPrisionero::RediArrP(int x)
 {
-    size1=x;
-    Prisionero *aux= new Prisionero[size1];
+    Prisionero *aux= new Prisionero[x];
     for(int i=0;i<size1;i++)
         aux[i]=arr[i];
     delete [] arr;
+    size1=x;
     arr=aux;
 }
 void ArrayPrisionero::AgregarPrisionero(Prisionero x)
