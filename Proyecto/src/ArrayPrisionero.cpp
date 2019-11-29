@@ -84,12 +84,20 @@ void ArrayPrisionero::EliminarPrisionero(string aux_codigo)
             getline(cin,verificacion);
             if(verificacion[0]==si[0] && verificacion[1]==si[1])
             {
-                for(int f=i;f<size1;f++)
+                if(i==size1-1)
                 {
-                    arr[f]=arr[f+1];
+                    RediArrP(--size1);
+                    cout<<"Guardia eliminado"<<endl;
                 }
-                RediArrP(--size1);
-                cout<<"Prisionero eliminado"<<endl;
+                else
+                {
+                    for(int f=i;f<size1;f++)
+                    {
+                        arr[f]=arr[f+1];
+                    }
+                    RediArrP(--size1);
+                    cout<<"Prisionero eliminado"<<endl;
+                }
             }
             else
                 cout<<"Prisionero no eliminado"<<endl;
