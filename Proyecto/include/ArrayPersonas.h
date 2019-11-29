@@ -3,7 +3,7 @@
 //  ProyectoFinalXcode
 //
 //  Created by Luis Sebastian Arroyo Pinto on 11/23/19.
-//  Copyright © 2019 Luis Sebastian Arroyo Pinto. All rights reserved.
+//  Copyright Â© 2019 Luis Sebastian Arroyo Pinto. All rights reserved.
 //
 
 #ifndef ArrayPersonas_h
@@ -148,7 +148,7 @@ template <typename L>
 void ArrayPersonas<L>::SubiraFichero()
 {
     ofstream archivo;
-    archivo.open("/Users/luisarroyo/Desktop/Proyecto/RegistroGuardia.txt",ios::trunc);
+    archivo.open("RegistroGuardia.txt",ios::trunc);
     if(archivo.is_open())
     {
         for(int i=0;i<tam;i++)
@@ -177,7 +177,7 @@ void ArrayPersonas<L>::LecturaArrPersona()
     string aux_seccion;
     string aux_turno;
     ifstream lectura;
-    lectura.open("/Users/luisarroyo/Desktop/Proyecto/RegistroGuardia.txt",ios::in);
+    lectura.open("RegistroGuardia.txt",ios::in);
     if(lectura.is_open())
     {
         lectura.seekg(0);
