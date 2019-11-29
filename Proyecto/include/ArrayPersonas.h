@@ -107,12 +107,20 @@ void ArrayPersonas<L>::EliminarPersona(string codigo)
             getline(cin,verificador);
             if(verificador[0]==si[0] && verificador[1]==si[1])
             {
-                for(int f=i;f<tam;f++)
+                if(i==tam-1)
                 {
-                    guarpri[f]=guarpri[f+1];
+                    RediArrPer(--tam);
+                    cout<<"Guardia eliminado"<<endl;
                 }
-                RediArrPer(--tam);
-                cout<<"Guardia eliminado"<<endl;
+                else
+                {
+                    for(int f=i;f<tam;f++)
+                    {
+                        guarpri[f]=guarpri[f+1];
+                    }
+                    RediArrPer(--tam);
+                    cout<<"Guardia eliminado"<<endl;
+                }
             }
             else
                 cout<<"Guardia no eliminado"<<endl;
