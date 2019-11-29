@@ -135,7 +135,7 @@ template <typename L>
 void ArrayPersonas<L>::SubiraFichero()
 {
     ofstream archivo;
-    archivo.open("RegistroGuardia.txt",ios::trunc);
+    archivo.open("/Users/luisarroyo/Desktop/Proyecto/RegistroGuardia.txt",ios::trunc);
     if(archivo.is_open())
     {
         for(int i=0;i<tam;i++)
@@ -164,7 +164,7 @@ void ArrayPersonas<L>::LecturaArrPersona()
     string aux_seccion;
     string aux_turno;
     ifstream lectura;
-    lectura.open("RegistroGuardia.txt",ios::in);
+    lectura.open("/Users/luisarroyo/Desktop/Proyecto/RegistroGuardia.txt",ios::in);
     if(lectura.is_open())
     {
         lectura.seekg(0);

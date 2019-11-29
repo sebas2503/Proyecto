@@ -123,7 +123,7 @@ void ArrayPrisionero::MostrarArrPrisionero()
 void ArrayPrisionero::SubiraFichero()
 {
     ofstream archivo;
-    archivo.open("RegistroPrisionero.txt",ios::trunc);
+    archivo.open("/Users/luisarroyo/Desktop/Proyecto/RegistroPrisionero.txt",ios::trunc);
     for(int i=0;i<size1;i++)
     {
         archivo<<arr[i].GetCodigo()<<endl;
@@ -147,7 +147,7 @@ void ArrayPrisionero::LecturaArrPrisionero()
     string aux_nivelPeligro;
     string aux_condena;
     ifstream lectura;
-    lectura.open("RegistroPrisionero.txt",ios::in);
+    lectura.open("/Users/luisarroyo/Desktop/Proyecto/RegistroPrisionero.txt",ios::in);
     if(lectura.is_open())
     {
         lectura.seekg(0);

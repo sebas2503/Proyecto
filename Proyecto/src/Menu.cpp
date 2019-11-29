@@ -11,7 +11,7 @@ void Menu::MenuPrisionero()
         cout<<"3. Eliminar"<<endl;
         cout<<"4. Mostrar lista"<<endl;
         cout<<"5. Guardar datos"<<endl;
-        cout<<"6. Ordenar(Apellido)"<<endl;
+        cout<<"6. Ordenar"<<endl;
         cout<<"7. Buscar Prisionero"<<endl;
         cout<<"8. Salir"<<endl;
         cout<<"Opcion: ";
@@ -170,12 +170,18 @@ void Menu::SubMenuGuardia()
             {
                 system("clear");
                 gx.OrdenarNombre();
+                gx.MostrarArrPersona();
                 break;
             }
             case 2:
             {
                 system("clear");
                 gx.OrdenarApellido();
+                gx.MostrarArrPersona();
+            }
+            case 3:
+            {
+                break;
             }
             default:
             {
@@ -201,12 +207,18 @@ void Menu::SubMenuPrisionero()
             {
                 system("clear");
                 p.OrdenarNombre();
+                p.MostrarArrPrisionero();
                 break;
             }
             case 2:
             {
                 system("clear");
                 p.OrdenarApellido();
+                p.MostrarArrPrisionero();
+            }
+            case 3:
+            {
+                break;
             }
             default:
             {
